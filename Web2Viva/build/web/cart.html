@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Boxella | Cart</title>
+        <link rel="stylesheet" href="assets/css/index.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+        <link rel="icon" href="assets/images/logo.png" />
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
+        <link rel="stylesheet" href="assets/css/vendor/flaticon/flaticon.css">
+        <link rel="stylesheet" href="assets/css/vendor/slick.css">
+        <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+        <link rel="stylesheet" href="assets/css/vendor/jquery-ui.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/sal.css">
+        <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/vendor/base.css">
+
+    </head>
+
+    <body onload="loadCartItems(); loadCheckoutData();">
+        <!--<body onload="loadCartItems(); loadCheckoutData();">-->
+
+        <!-- Top Bar -->
+        <div class="container-fluid" style="background:#f8f9fa; font-size:14px; padding:5px 25px 0px 10px;">
+            <div class="row align-items-center">
+
+                <div class="col-md-12 text-center text-lg-end" style="padding-right:15px; color:#6c6c6c; font-weight: 350;">
+                    <div class="d-inline me-2">
+                        <div class="dropdown d-inline">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle  border-0"
+                                    style="font-size:13px;" data-bs-toggle="dropdown">USD</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">EUR</a></li>
+                                <li><a class="dropdown-item" href="#">USD</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-inline me-2">
+                        <div class="dropdown d-inline">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle  border-0"
+                                    style="font-size:13px;" data-bs-toggle="dropdown">English</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                                <li><a class="dropdown-item" href="#">French</a></li>
+                                <li><a class="dropdown-item" href="#">Spanish</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#" style="font-size:13px; color:#6c6c6c; text-decoration:none;">Sign In / Sign Up</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Header -->
+        <div class="container-fluid border-bottom" style="padding:10px 8%;">
+            <div class="row align-items-center">
+                <!--    Left -->
+                <div class="col-md-3 d-flex align-items-center ps-3">
+                    <img src="assets/images/logoName.png" alt="Logo" style="width:80%; height:auto;">
+                </div>
+
+                <!-- Center -->
+                <div class="col-md-6 mt-4">
+                    <div class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search product..." aria-label="Search"
+                               style="border-radius:0;">
+                        <button class="border-0" type="submit" style="width:40px; height: 40px; border-radius:0; background-color: #B68B62; color: white; font-size: 20px;"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- Right -->
+                <div class="col-md-3 d-flex justify-content-end align-items-center pe-3 g-4">
+                    <!-- Account -->
+                    <a href="account.html" class="text-decoration-none text-dark me-3 text-center">
+                        <div style="font-size:20px;"><i class="bi bi-person"></i></div>
+                        <small style="font-size:12px;">Account</small>
+                    </a>
+                    <!-- Wishlist -->
+                    <a href="#" class="text-decoration-none text-dark me-3 text-center position-relative">
+                        <div style="font-size:20px;"><i class="bi bi-heart"></i></div>
+                        <small style="font-size:12px;">Wishlist</small>
+                    </a>
+                    <!-- Cart -->
+                    <a href="#" class="text-decoration-none text-dark text-center position-relative">
+                        <div style="font-size:20px;"><i class="bi bi-cart"></i></div>
+                        <small style="font-size:12px;">Cart</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="center" class="center_o pt-5 pb-5 bg-light">
+            <div class="container-xl">
+                <div class="row center_o1 text-center">
+                    <div class="col-md-12">
+                        <h1>Cart</h1>
+                        <h6 class="d-inline-block bg-white" style="font-size: 14px; color:rgb(182 139 98);"><a
+                                class="text-dark text-decoration-none" href="index.html">Home</a> <span
+                                class="me-2 ms-2">/</span>Cart</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <main class="main mt-4">
+            <div class="page-content">
+                <div class="cart">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 mt-4 mb-5">
+                                <table class="table table-cart table-mobile">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="cart-item-container">
+                                        <tr class="table-cart-row">
+                                            <td class="product-col">
+                                                <div class="product">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="" alt="Product image">
+                                                        </a>
+                                                    </figure>
+
+                                                    <h3 class="product-title">
+                                                        <a href="#">Beige knitted elastic runner shoes</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            <td class="price-col">$84.00</td>
+                                            <td class="quantity-col">
+                                                <div class="cart-product-quantity">
+                                                    <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                                </div><!-- End .cart-product-quantity -->
+                                            </td>
+                                            <td class="total-col">$84.00</td>
+                                            <td class="remove-col text-center"><button class="btn-remove text-danger" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                                    </svg></button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table><!-- End .table table-wishlist -->
+
+
+                            </div><!-- End .col-lg-9 -->
+                            <div class="col-lg-8 mt-5">
+                                <div class="cart_3r mx-3">
+                                    <h6 class="head_1"><i style="color: white; font-size: 15px" class="bi bi-geo-alt-fill"></i>&nbsp;&nbsp; SHIPPING ADDRESS</h6>
+                                    <div class="checkout_1r" style="border: 1px solid #f7ba0121; padding: 25px 15px 30px 15px;">
+                                        <div class="form-group input-group" style="margin-bottom: 20px;">
+                                            <input type="checkbox" id="checkbox1" style="margin-right: 8px;">
+                                            <label for="checkbox1" style="font-size: 14px; color: #333;">Same as your current address?</label>
+                                        </div>
+
+                                        <div class="row" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                            <div class="col-lg-6" style="flex: 1; min-width: 200px;">
+                                                <div class="form-group" style="margin-bottom: 15px;">
+                                                    <label style="display: block; font-weight: 500; margin-bottom: 5px;">First Name <span style="color: red;">*</span></label>
+                                                    <input type="text" id="first-name" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6" style="flex: 1; min-width: 200px;">
+                                                <div class="form-group" style="margin-bottom: 15px;">
+                                                    <label style="display: block; font-weight: 500; margin-bottom: 5px;">Last Name <span style="color: red;">*</span></label>
+                                                    <input type="text" id="last-name" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="margin-bottom: 15px;">
+                                            <label style="display: block; font-weight: 500; margin-bottom: 5px;">City <span style="color: red;">*</span></label>
+                                            <select id="city-select" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                <option value="0">Select</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" style="margin-bottom: 15px;">
+                                            <label style="display: block; font-weight: 500; margin-bottom: 5px;">Address Line 1 <span style="color: red;">*</span></label>
+                                            <input type="text" id="line-one" placeholder="House number and street name" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                        </div>
+
+                                        <div class="form-group" style="margin-bottom: 15px;">
+                                            <label style="display: block; font-weight: 500; margin-bottom: 5px;">Address Line 2 <span style="color: red;">*</span></label>
+                                            <input type="text" id="line-two" placeholder="Apartment, suite, unit, etc." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                        </div>
+
+                                        <div class="form-group" style="margin-bottom: 0;">
+                                            <label style="display: block; font-weight: 500; margin-bottom: 5px;">Mobile <span style="color: red;">*</span></label>
+                                            <input type="text" id="mobile" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                        </div>
+
+                                        <div class="form-group" style="margin-bottom: 15px;">
+                                            <label style="display: block; font-weight: 500; margin-bottom: 5px;">Postal Code <span style="color: red;">*</span></label>
+                                            <input type="text" id="postal-code" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-lg-4 mt-5">
+                                <div class="cart_3r mx-3">
+                                    <h6 class="head_1">SUBTOTAL</h6>
+                                    <div class="checkout_1r" style="border: 1px solid #f7ba0121; padding: 25px 15px 30px 15px;">
+                                        <h5>CART TOTALS</h5>
+                                        <hr class="line" style="height: 3px!important; width: 100px; background-color: #f7ba01;">
+                                        <h6 class="font_13 mt-4" style="font-size: 13px;" id="box-name">+ Gift Box <span class="pull-right" style="float: right;" id="box-price">Rs. 0.00</span></h6>
+
+                                        <div class="mt-3 mb-2" id="item-body">
+                                            <div class="mt-2" id="sub-item" style="display: flex; justify-content: space-between; font-size: 14px;">
+                                                <div>
+                                                    <span class="font_13" id="sub-item-name">Product</span> x 
+                                                    <span class="font_13" id="sub-item-qty">1</span>
+                                                </div>
+                                                <div>
+                                                    <span class="font_13" id="sub-item-price">Rs. 123.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h6 class="mt-5 font_13" style="font-size: 13px;">Sub Total <span class="pull-right" style="float: right;">Rs. <span id="sub-total"></span>.00</span></h6>
+                                        <h6 class="mt-3 font_13 mb-3" style="font-size: 13px;">(+) Shipping <span class="pull-right" style="float: right;">Rs. <span id="sub-shipping-charge"></span>500.00</span></h6>
+                                        <hr>
+                                        <h6 class="font_13 mt-4" style="font-size: 16px; margin-bottom: -5px;">Total <span class="pull-right" style="float: right;" id="full-amount">Rs. 5400.00</span></h6><br>
+                                        <hr>
+                                        <div class="input-group justify-content-between align-items-center"
+                                             style="display: flex; justify-content: space-between; align-items: center; border: 1px solid #ccc; padding: 15px; border-radius: 8px; margin-bottom: 15px; background-color: #f9f9f9;">
+
+                                            <div style="display: flex; align-items: center;">
+                                                <input type="radio" id="radio6" name="payment" checked style="margin-right: 10px;">
+                                                <label for="radio6" style="margin: 0; font-weight: 500; font-size: 14px; color: #333;">Visa/Master Card</label>
+                                            </div>
+
+                                            <div style="display: flex; align-items: center;">
+                                                <img src="./assets/images/icons/visa.png" alt="Visa" style="height: 15px; margin-right: 10px;">
+                                                <img src="./assets/images/icons/mastercard.png" alt="MasterCard" style="height: 15px;">
+                                            </div>
+                                        </div>
+                                        <h5>PAYMENTS</h5>
+                                        <hr class="line" style="height: 3px!important; width: 100px; background-color: #f7ba01;">
+
+                                        <h6 class="mt-4"><a class="button d-block text-center" style="background-color: rgb(182 139 98);" href="#" onclick="checkout();">PROCEED TO CHECKOUT</a></h6>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div><!-- End .row -->
+                    </div><!-- End .container -->
+                </div><!-- End .cart -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+        <!--payhere-->
+        <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+
+        <script src="assets/js/cart.js"></script>
+
+        <!-- Notyf JS -->
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+        <!-- Modernizer JS -->
+        <script src="assets/js/vendor/modernizr.min.js"></script>
+        <!-- jQuery JS -->
+        <script src="assets/js/vendor/jquery.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/slick.min.js"></script>
+        <script src="assets/js/vendor/js.cookie.js"></script>
+        <!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+        <script src="assets/js/vendor/jquery-ui.min.js"></script>
+        <script src="assets/js/vendor/jquery.ui.touch-punch.min.js"></script>
+        <script src="assets/js/vendor/jquery.countdown.min.js"></script>
+        <script src="assets/js/vendor/sal.js"></script>
+        <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+        <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
+        <script src="assets/js/vendor/counterup.js"></script>
+        <script src="assets/js/vendor/waypoints.min.js"></script>
+
+        <!-- Notyf JS -->
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+
+        <script src="assets/js/main.js"></script>
+
+
+
+
+    </body>
+
+</html>

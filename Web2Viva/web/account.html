@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Boxella</title>
+
+        <link rel="stylesheet" href="assets/css/index.css" />
+        <link rel="stylesheet" href="assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+        <link rel="icon" href="assets/images/logo.png" />
+
+    </head>
+
+    <body onload="loadData();">
+        
+        <!-- Middle Header -->
+        <div class="container-fluid border-bottom" style="padding:10px 8%;">
+            <div class="row align-items-center">
+                <!--    Left -->
+                <div class="col-md-3 d-flex align-items-center ps-3">
+                    <img src="assets/images/logoName.png" alt="Logo" style="width:80%; height:auto;">
+                </div>
+
+                <!-- Center -->
+                <div class="col-md-6 mt-4">
+                    <div class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search product..." aria-label="Search"
+                               style="border-radius:0;">
+                        <button class="border-0" type="submit" style="width:40px; height: 40px; border-radius:0; background-color: #B68B62; color: white; font-size: 20px;"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- Right -->
+                <div class="col-md-3 d-flex justify-content-end align-items-center pe-3 g-4">
+                    <!-- Account -->
+                    <a href="account.html" class="text-decoration-none text-dark me-3  mx-3 text-center">
+                        <div style="font-size:20px;"><i class="bi bi-person"></i></div>
+                        <small style="font-size:12px;">Account</small>
+                    </a>
+                    <!-- Wishlist -->
+                    <a href="#" class="text-decoration-none text-dark me-3  mx-4 text-center position-relative">
+                        <div style="font-size:20px;"><i class="bi bi-heart"></i></div>
+                        <small style="font-size:12px;">Wishlist</small>
+                    </a>
+                    <!-- Cart -->
+                    <a href="#" class="text-decoration-none text-dark text-center mx-5 position-relative">
+                        <div style="font-size:20px;"><i class="bi bi-cart"></i></div>
+                        <small style="font-size:12px;">Cart</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="center" class="center_o pt-4 pb-4 bg-light">
+            <div class="container-xl">
+                <div class="row center_o1 text-center">
+                    <div class="col-md-12">
+                        <h1>My Account</h1>
+                        <h6 class="d-inline-block bg-white" style="font-size: 14px; color:rgb(182 139 98);"><a
+                                class="text-dark text-decoration-none" href="index.html">Home</a> <span
+                                class="me-2 ms-2">/</span> My Account</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container emp-profile shadow">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="assets/images/user.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5 style="font-size: 27px;" id="username">
+                            Kshiti Ghelani
+                        </h5>
+                        <h6 id="dashEmail" class="text-secondary" style="font-size: 13px">
+                            Member since Nov 2025
+                        </h6>
+                        <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                   aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                        </ul>
+
+                        <div class="col-md-12">
+
+                            <div class="row mt-5 mb-2">
+                                <div class="col-md-4">
+                                    <label>First Name :</label>
+                                </div>
+                                <div class="col-md-8 d-grid">
+                                    <input placeholder="First Name" class="border-0" type="text" id="firstName" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label>Last Name :</label>
+                                </div>
+                                <div class="col-md-8 d-grid">
+                                    <input placeholder="Last Name" class="border-0" type="text" name="email" id="lastName" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label>Email :</label>
+                                </div>
+                                <div class="col-md-8 d-grid">
+                                    <input placeholder="Email" class="border-0" type="email" id="email" readonly autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label>Line 01 :</label>
+                                </div>
+                                <div class="col-md-8 d-grid">
+                                    <input placeholder="Line 01" class="border-0" type="text" name="line1" id="line1" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label>Line 02 :</label>
+                                </div>
+                                <div class="col-md-8 d-grid">
+                                    <input placeholder="Line 02" class="border-0" type="text" name="line2" id="line2" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label>City :</label>
+                                </div>
+                                <div class="col-md-8 d-grid">
+                                    <select id="citySelect" class="border-0" style="color: #767676; border-color: #767676;">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label>Postal Code :</label>
+                                </div>
+                                <div class="col-md-8 d-grid">
+                                    <input placeholder="Postal Code" class="border-0" type="text" name="postalCode" id="postalCode" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Log Out" onClick="signOut();" />
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8 offset-0 offset-lg-4 mt-4 offset-md-0 text-center d-grid">
+                <button class="mt-4 p-2 border-0 text-white" style="background-color: rgb(182 139 98);"
+                        onclick="saveChanges();"  >Save Changes</button>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+
+        </div>
+        <!-- Notyf JS -->
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+        <script src="assets/js/signOut.js"></script>
+        <script src="assets/js/myAccount.js"></script>
+    </body>
+
+</html>
